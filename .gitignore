@@ -77,6 +77,11 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# query folder
+query
+# hasil folder
+/hasil
+
 # IPython
 profile_default/
 ipython_config.py
