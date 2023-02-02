@@ -7,7 +7,7 @@ class Load:
         pass
     def ToFSCSV(self, data, pathname):
         try :
-            data.to_csv(pathname)
+            data.to_csv(pathname, index=False)
             print('success load to csv')
         except Exception as e:
             print(e)
