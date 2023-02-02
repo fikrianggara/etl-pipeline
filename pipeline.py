@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 def fromSQLServerToCSV():
 
     load_dotenv()
+    
     sqlServerConnection = dbConnector.SQLServerConnection(driver=os.getenv('DRIVER'),
                                                         server=os.getenv('DB_SERVER'),
                                                         database = os.getenv('DATABASE'),

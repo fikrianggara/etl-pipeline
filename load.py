@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 class Load:
     def toGsheet(self, GsheetConnection):
         # tambahin logic send
