@@ -17,30 +17,30 @@ def fromSQLServerToCSV():
     sqlServerConnection.connect()
 
     # Extract from sql server db
-    extractor = e.Extract()
-    fd = open('query/caregiver kode 3.sql', 'r')
+    extract = e.Extract()
+    fd = open('query/SQL-server/caregiver kode 3.sql', 'r')
     sqlFile = fd.read()
     fd.close()
 
-    queryResult, columns = extractor.FromDb(sqlServerConnection, sqlFile)
+    queryResult, columns = extract.FromDb(sqlServerConnection, sqlFile)
 
     # Transform to dataframe
-    transformer = t.Transform()
-    transformedData = transformer.queryResultToDF(queryResult, columns)
+    transform = t.Transform()
+    transformedData = transform.queryResultToDF(queryResult, columns)
     transformedData.head()
 
     # Load to csv
-    loader = l.Load()
-    loader.ToFSCSV(transformedData, 'hasil/caregiver kode 3.csv')
+    load = l.Load()
+    load.ToFSCSV(transformedData, 'hasil/caregiver kode 3.csv')
 
 def extractFromGsheet():
 
     load_dotenv()
 
-    extractor = e.Extract()
+    extract = e.Extract()
     spreadSheetId='1YgCZwN6e4m4xeRkNvxisT-28fgWAJQqBpuDt9DqUhOE'
     sheetName='matrix anomali 06-02-2023'
     api_key=os.getenv('GSHEET_API_KEY')
     for x in range (80):
         print(x)
-        extractor.FromGsheet(spreadSheetId, sheetName, api_key)
+        extract.FromGsheet(spreadSheetId, sheetName, api_key)
