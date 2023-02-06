@@ -1,7 +1,7 @@
 import pipeline
 
 def main() :
-    pipeline.fromSQLServerToCSV()
+    pipeline.extractFromGsheet()
 
 if __name__=="__main__":
     main()
