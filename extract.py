@@ -11,5 +11,5 @@ class Extract :
     
     def FromGsheet(self, spreadSheetId, sheetName, api_key, api_ver='v4'):
         tempData = requests.get('https://sheets.googleapis.com/'+api_ver+'/spreadsheets/'+spreadSheetId+'/values/'+sheetName+'?key='+api_key)
-        print('status code :',tempData.status_code)
+        return tempData
 

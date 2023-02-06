@@ -1,7 +1,7 @@
 import pipeline
 
 def main() :
-    pipeline.extractFromGsheet()
+    pipeline.fromGsheetToGsheet()
 
 if __name__=="__main__":
     main()

@@ -33,14 +33,25 @@ def fromSQLServerToCSV():
     load = l.Load()
     load.ToFSCSV(transformedData, 'hasil/caregiver kode 3.csv')
 
-def extractFromGsheet():
+def fromGsheetToGsheet():
 
     load_dotenv()
 
     extract = e.Extract()
+    transform = t.Transform()
+    load = l.Load()
     spreadSheetId='1YgCZwN6e4m4xeRkNvxisT-28fgWAJQqBpuDt9DqUhOE'
     sheetName='matrix anomali 06-02-2023'
+    spreadSheetIdOutput="1gzkXxhW_Pe8lQyLp-OVHLiOOAI7zb6-wUhwgD7nrJk0"
+    sheetNameOutput="matrix anomali"
     api_key=os.getenv('GSHEET_API_KEY')
-    for x in range (80):
-        print(x)
-        extract.FromGsheet(spreadSheetId, sheetName, api_key)
+
+    # extract
+    response = extract.FromGsheet(spreadSheetId, sheetName, api_key)
+    # transform
+    dfData = transform.gSheetToDf(response)
+
+    # load
+    respones = load.toGsheet(spreadSheetIdOutput, sheetNameOutput, api_key, dfData)
+    print(respones)
+    # print(dfData)
