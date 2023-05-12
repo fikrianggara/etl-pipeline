@@ -1,4 +1,4 @@
-# etl-pipeline-bps
+# etl-pipeline
 
 etl pipeline for extracting, transforming, and load bps data.
 feature :
